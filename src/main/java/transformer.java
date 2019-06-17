@@ -1,7 +1,4 @@
-import org.bytedeco.javacpp.Loader;
-import org.bytedeco.javacpp.avcodec;
-import org.bytedeco.javacpp.opencv_core;
-import org.bytedeco.javacpp.opencv_objdetect;
+import org.bytedeco.javacpp.*;
 import org.bytedeco.javacv.*;
 
 import javax.swing.JFrame;
@@ -48,6 +45,12 @@ public class transformer {
             recorder = FrameRecorder.createDefault(outputFile, 1280, 720);
         } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
             throw e;
+        }
+        try {
+            opencv_imgcodecs.cvSaveImage("evidence.jpg",grabbedImage);
+//            imgcodecs.cvSa
+        }catch (Exception e){
+            e.printStackTrace();
         }
         recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // avcodec.AV_CODEC_ID_H264
         recorder.setFormat("flv");
